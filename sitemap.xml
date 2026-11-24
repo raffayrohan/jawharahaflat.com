@@ -48,4 +48,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://jawharahaflat.com/party-setup-guide-riyadh/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/party-setup-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawharahaflat.com/en/party-setup-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/party-setup-guide-riyadh/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/en/party-setup-guide-riyadh/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/party-setup-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawharahaflat.com/en/party-setup-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/party-setup-guide-riyadh/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/winter-kashta-riyadh/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/winter-kashta-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawharahaflat.com/en/winter-kashta-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/winter-kashta-riyadh/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/en/winter-kashta-riyadh/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/winter-kashta-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawharahaflat.com/en/winter-kashta-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/winter-kashta-riyadh/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
