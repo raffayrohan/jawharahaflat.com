@@ -47,6 +47,17 @@ nav.main a:hover{color:var(--gold2)}
 .slot.ratio{aspect-ratio:4/3;min-height:0}
 .slot.hero-slot{aspect-ratio:16/10;margin-top:34px}
 
+/* Real photos (replaced the .slot placeholders) */
+.ph{width:100%;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line)}
+.ph.hero{aspect-ratio:16/10;margin-top:34px}
+.ph.ratio{aspect-ratio:4/3}
+.gal{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(min-width:900px){.gal{grid-template-columns:1fr 1fr 1fr}}
+.gal figure{border-radius:var(--radius);overflow:hidden}
+.gal img{aspect-ratio:4/3;transition:transform .4s ease}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{padding:10px 4px 2px;color:var(--muted);font-size:.93rem}
+
 /* Sections */
 section{padding:56px 0}
 section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
