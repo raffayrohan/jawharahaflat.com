@@ -48,6 +48,28 @@ nav.main a:hover{color:var(--gold2)}
 /* Flowing gold gradient + glow on the hero keyword (Al-Rayyan .hl.flow effect) */
 .hero h1 .g{background:linear-gradient(90deg,var(--gold) 0%,var(--gold2) 25%,#fff3cf 50%,var(--gold2) 75%,var(--gold) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flowShift 5s linear infinite;filter:drop-shadow(0 0 16px rgba(230,200,120,.45))}
 @keyframes flowShift{to{background-position:-220% 0}}
+/* Colourful flowing words, like the Al-Rayyan hero: teal/green and bronze variants */
+.hero h1 .t{background:linear-gradient(90deg,#0e9f6e 0%,#2dd4bf 25%,#a7f3d0 50%,#2dd4bf 75%,#0e9f6e 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flowShift 5s linear infinite;filter:drop-shadow(0 0 16px rgba(45,212,191,.4))}
+.hero h1 .b{background:linear-gradient(90deg,#b45309 0%,#d97706 25%,#fcd9a0 50%,#d97706 75%,#b45309 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flowShift 6s linear infinite;filter:drop-shadow(0 0 16px rgba(217,119,6,.4))}
+
+/* Full gallery + popup lightbox */
+.gal-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(min-width:900px){.gal-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+.gal-grid figure{border-radius:var(--radius);overflow:hidden;cursor:zoom-in;background:var(--card);border:1px solid var(--line)}
+.gal-grid img{aspect-ratio:4/3;transition:transform .45s ease}
+.gal-grid figure:hover img{transform:scale(1.06)}
+.gal-grid figcaption{padding:9px 12px;color:var(--muted);font-size:.9rem}
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(10,7,4,.93);display:none;place-items:center;padding:18px}
+.lightbox.open{display:grid}
+.lightbox figure{max-width:min(1060px,100%);text-align:center;animation:popIn .38s cubic-bezier(.2,.9,.3,1.25)}
+.lightbox img{max-height:78vh;width:auto;max-width:100%;margin:0 auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox figcaption{color:var(--cream);margin-top:14px;font-size:1rem}
+.lightbox .x{position:absolute;top:14px;inset-inline-end:18px;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(22,17,11,.85);color:var(--gold2);font-size:1.35rem;cursor:pointer}
+.lightbox .nav-b{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(22,17,11,.85);color:var(--gold2);font-size:1.2rem;cursor:pointer}
+.lightbox .prev{inset-inline-start:14px}.lightbox .next{inset-inline-end:14px}
+@keyframes popIn{from{opacity:0;transform:scale(.86) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lightbox.open{animation:fadeIn .25s ease}
 @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.06)}}
 .hero .ph.hero{animation:kenburns 26s ease-in-out infinite alternate}
 .hero p.lead{margin:16px 0 24px;color:var(--muted);font-size:1.08rem;max-width:38em}
@@ -160,4 +182,4 @@ footer p{color:var(--muted);font-size:.95rem}
 /* Reveal animation (light, respects reduced motion) */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.card{transition:none}.hero h1 .g{animation:none}.hero .ph.hero{animation:none}.load-line span{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.card{transition:none}.hero h1 .g,.hero h1 .t,.hero h1 .b{animation:none}.hero .ph.hero{animation:none}.load-line span{transition:none}.lightbox figure{animation:none}.gal-grid img{transition:none}}

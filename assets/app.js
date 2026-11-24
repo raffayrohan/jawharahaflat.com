@@ -39,7 +39,38 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* 3) Reveal on scroll */
+  /* 3) Gallery lightbox — popup card with animation, arrows and keyboard */
+  var lb = document.getElementById("lightbox");
+  if (lb) {
+    var lbImg = lb.querySelector("img");
+    var lbCap = lb.querySelector("figcaption");
+    var figs = Array.prototype.slice.call(document.querySelectorAll(".gal-grid figure"));
+    var cur = 0;
+    var show = function (i) {
+      cur = (i + figs.length) % figs.length;
+      var img = figs[cur].querySelector("img");
+      lbImg.src = img.getAttribute("data-full") || img.src;
+      lbImg.alt = img.alt;
+      var cap = figs[cur].querySelector("figcaption");
+      lbCap.textContent = cap ? cap.textContent : img.alt;
+    };
+    figs.forEach(function (f, i) {
+      f.addEventListener("click", function () { show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; });
+    });
+    var close = function () { lb.classList.remove("open"); document.body.style.overflow = ""; };
+    lb.querySelector(".x").addEventListener("click", close);
+    lb.querySelector(".prev").addEventListener("click", function (e) { e.stopPropagation(); show(cur - 1); });
+    lb.querySelector(".next").addEventListener("click", function (e) { e.stopPropagation(); show(cur + 1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") show(cur + (document.documentElement.dir === "rtl" ? -1 : 1));
+      if (e.key === "ArrowLeft") show(cur + (document.documentElement.dir === "rtl" ? 1 : -1));
+    });
+  }
+
+  /* 4) Reveal on scroll */
   var els = document.querySelectorAll(".rv");
   if (!("IntersectionObserver" in window) || reduced) {
     els.forEach(function (e) { e.classList.add("in"); });
