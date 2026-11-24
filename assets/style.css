@@ -213,3 +213,20 @@ button.card{font:inherit;text-align:inherit;width:100%;cursor:pointer;color:inhe
   body{padding-bottom:64px}
 }
 @media(prefers-reduced-motion:reduce){.hero-bg{animation:none}.svc-card{animation:none}}
+
+/* Gold icon tiles + shiny sweep on reveal + photo-backed cards */
+.card .ic{display:grid;place-items:center;width:54px;height:54px;border-radius:15px;background:linear-gradient(145deg,#3d2d15,#231809);border:1px solid rgba(201,162,75,.65);box-shadow:0 6px 18px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,240,192,.25);font-size:1.45rem;margin-bottom:14px}
+.card{position:relative;overflow:hidden}
+.card.has-bg{background-size:cover;background-position:center}
+.card.has-bg>*{position:relative;z-index:1}
+.card.has-bg h3,.card.has-bg p{text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.shine{position:relative;overflow:hidden}
+.rv.in.shine::after,.card.rv.in::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,236,180,.16) 48%,rgba(255,255,255,.22) 52%,transparent 70%);transform:translateX(-130%);animation:shineSweep 1.15s ease .12s 1}
+html[dir="rtl"] .card.rv.in::after,html[dir="rtl"] .rv.in.shine::after{transform:translateX(130%);animation-name:shineSweepR}
+@keyframes shineSweep{to{transform:translateX(130%)}}
+@keyframes shineSweepR{to{transform:translateX(-130%)}}
+.ph.ratio.rv.in{animation:none}
+@media(prefers-reduced-motion:reduce){.card.rv.in::after,.rv.in.shine::after{display:none}}
+.gal-grid figure{position:relative}
+.gal-grid figure.rv.in::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,236,180,.14) 48%,rgba(255,255,255,.2) 52%,transparent 70%);transform:translateX(-130%);animation:shineSweep 1.15s ease .12s 1}
+html[dir="rtl"] .gal-grid figure.rv.in::after{transform:translateX(130%);animation-name:shineSweepR}

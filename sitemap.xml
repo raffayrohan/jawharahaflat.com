@@ -208,4 +208,39 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://jawharahaflat.com/north-riyadh-party-rental/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/north-riyadh-party-rental/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/north-riyadh-party-rental/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/south-riyadh-party-rental/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/south-riyadh-party-rental/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/south-riyadh-party-rental/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/east-riyadh-party-rental/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/east-riyadh-party-rental/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/east-riyadh-party-rental/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/west-riyadh-party-rental/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/west-riyadh-party-rental/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/west-riyadh-party-rental/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/thumama-amariyah-rest-houses/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/thumama-amariyah-rest-houses/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/thumama-amariyah-rest-houses/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
