@@ -11,9 +11,23 @@ img{max-width:100%;display:block}
 a{color:var(--gold2);text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 
-/* Header */
-header{position:sticky;top:0;z-index:50;background:rgba(22,17,11,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+/* Page loading line (Al-Rayyan style): gold bar sweeps the top, completes on load, fades out */
+.load-line{position:fixed;top:0;inset-inline:0;height:3px;z-index:400;pointer-events:none}
+.load-line span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8f6b36,var(--gold),var(--gold2),#fff0c0);box-shadow:0 0 12px rgba(230,200,120,.8);transition:width .45s ease,opacity .4s ease}
+.load-line.done span{opacity:0}
+
+/* Scroll progress line under the header */
+.progress{position:fixed;top:0;inset-inline:0;height:3px;z-index:390;pointer-events:none}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2))}
+
+/* Header: gradient gold border + colour glow, shrinks and shadows on scroll */
+header{position:sticky;top:0;z-index:50;background:rgba(22,17,11,.92);backdrop-filter:blur(10px);border-bottom:2px solid transparent;background-image:linear-gradient(rgba(22,17,11,.94),rgba(22,17,11,.94)),linear-gradient(90deg,#8f6b36,var(--gold),var(--gold2),var(--gold),#8f6b36);background-origin:border-box;background-clip:padding-box,border-box;transition:box-shadow .3s ease}
+header.scrolled{box-shadow:0 16px 36px -14px rgba(0,0,0,.65),0 2px 18px rgba(201,162,75,.25)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;transition:padding .3s ease}
+header.scrolled .hd{padding:7px 0}
+.lang{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--gold);color:var(--gold2);font-weight:800;padding:8px 15px;border-radius:999px;font-size:.9rem;min-height:44px}
+.lang:hover{background:rgba(201,162,75,.14)}
+.hd-actions{display:flex;align-items:center;gap:10px}
 .logo{display:flex;align-items:center;gap:10px;color:var(--cream);font-weight:800;font-size:1.12rem;line-height:1.4}
 .logo .gem{width:38px;height:38px;flex:0 0 38px;border:2px solid var(--gold);border-radius:10px;display:grid;place-items:center;color:var(--gold);font-size:1.15rem;transform:rotate(45deg)}
 .logo .gem span{transform:rotate(-45deg)}
@@ -30,7 +44,12 @@ nav.main a:hover{color:var(--gold2)}
   radial-gradient(600px 300px at 8% 110%,rgba(201,162,75,.12),transparent 60%),
   linear-gradient(180deg,var(--bg2),var(--bg));border-bottom:1px solid var(--line);overflow:hidden}
 .hero h1{font-size:2rem;font-weight:800;line-height:1.55;max-width:22em}
-.hero h1 .g{color:var(--gold2)}
+.hero h1::after{content:"";display:block;width:92px;height:4px;margin-top:18px;border-radius:2px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold2) 70%,transparent 100%)}
+/* Flowing gold gradient + glow on the hero keyword (Al-Rayyan .hl.flow effect) */
+.hero h1 .g{background:linear-gradient(90deg,var(--gold) 0%,var(--gold2) 25%,#fff3cf 50%,var(--gold2) 75%,var(--gold) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flowShift 5s linear infinite;filter:drop-shadow(0 0 16px rgba(230,200,120,.45))}
+@keyframes flowShift{to{background-position:-220% 0}}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero .ph.hero{animation:kenburns 26s ease-in-out infinite alternate}
 .hero p.lead{margin:16px 0 24px;color:var(--muted);font-size:1.08rem;max-width:38em}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;padding:13px 26px;border-radius:999px;min-height:52px;font-size:1rem}
@@ -131,4 +150,4 @@ footer p{color:var(--muted);font-size:.95rem}
 /* Reveal animation (light, respects reduced motion) */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.card{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.card{transition:none}.hero h1 .g{animation:none}.hero .ph.hero{animation:none}.load-line span{transition:none}}
