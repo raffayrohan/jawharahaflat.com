@@ -56,7 +56,7 @@ nav.main a:hover{color:var(--gold2)}
 .gal-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
 @media(min-width:900px){.gal-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
 .gal-grid figure{border-radius:var(--radius);overflow:hidden;cursor:zoom-in;background:var(--card);border:1px solid var(--line)}
-.gal-grid img{aspect-ratio:4/3;transition:transform .45s ease}
+.gal-grid img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .45s ease}
 .gal-grid figure:hover img{transform:scale(1.06)}
 .gal-grid figcaption{padding:9px 12px;color:var(--muted);font-size:.9rem}
 .lightbox{position:fixed;inset:0;z-index:300;background:rgba(10,7,4,.93);display:none;place-items:center;padding:18px}
@@ -183,3 +183,33 @@ footer p{color:var(--muted);font-size:.95rem}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.card{transition:none}.hero h1 .g,.hero h1 .t,.hero h1 .b{animation:none}.hero .ph.hero{animation:none}.load-line span{transition:none}.lightbox figure{animation:none}.gal-grid img{transition:none}}
+
+/* Hero photo behind text (Al-Rayyan theme) + service popup + mobile header fixes */
+.hero{position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;z-index:0;animation:kenburns 24s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(22,17,11,.86),rgba(22,17,11,.66) 52%,var(--bg) 98%)}
+.hero .wrap{position:relative;z-index:2}
+.hero.no-bg::after{display:none}
+.svc-pop{position:fixed;inset:0;z-index:300;background:rgba(10,7,4,.9);display:none;place-items:center;padding:16px}
+.svc-pop.open{display:grid;animation:fadeIn .25s ease}
+.svc-card{width:min(520px,100%);background:var(--card);border:1px solid var(--gold);border-radius:20px;overflow:hidden;animation:popIn .38s cubic-bezier(.2,.9,.3,1.25);box-shadow:0 30px 80px rgba(0,0,0,.6);position:relative}
+.svc-card img{height:230px;object-fit:cover;width:100%}
+.svc-body{padding:20px 22px 24px}
+.svc-body h3{color:var(--cream);font-size:1.35rem;margin-bottom:8px}
+.svc-body p{color:var(--muted);margin-bottom:18px}
+.svc-body .row{display:flex;gap:10px;flex-wrap:wrap}
+.svc-body .row .btn{flex:1;text-align:center}
+.svc-x{position:absolute;top:12px;inset-inline-end:12px;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(22,17,11,.88);color:var(--gold2);font-size:1.25rem;cursor:pointer;z-index:2}
+button.card{font:inherit;text-align:inherit;width:100%;cursor:pointer;color:inherit}
+@media(max-width:560px){
+  .hd{gap:8px;flex-wrap:nowrap}
+  .logo{font-size:.95rem;gap:8px}
+  .logo small{font-size:.58rem}
+  .logo .gem{width:34px;height:34px;font-size:1rem;flex-shrink:0}
+  .hd-actions{gap:7px;flex-shrink:0}
+  .lang{padding:7px 11px;font-size:.78rem;white-space:nowrap}
+  .hd-cta{padding:9px 13px;font-size:.8rem;white-space:nowrap}
+  .hero{padding-top:42px}
+  body{padding-bottom:64px}
+}
+@media(prefers-reduced-motion:reduce){.hero-bg{animation:none}.svc-card{animation:none}}

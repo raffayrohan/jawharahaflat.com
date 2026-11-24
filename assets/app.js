@@ -70,7 +70,31 @@
     });
   }
 
-  /* 4) Reveal on scroll */
+  /* 4) Service quick-view popup (homepage cards) */
+  var pop = document.getElementById("svcPop");
+  if (pop) {
+    var pImg = pop.querySelector("img");
+    var pTitle = pop.querySelector("h3");
+    var pDesc = pop.querySelector("p");
+    var pLink = pop.querySelector(".svc-link");
+    document.querySelectorAll(".svc-open").forEach(function (b) {
+      b.addEventListener("click", function () {
+        pImg.src = b.getAttribute("data-img");
+        pImg.alt = b.getAttribute("data-title");
+        pTitle.textContent = b.getAttribute("data-title");
+        pDesc.textContent = b.getAttribute("data-desc");
+        pLink.href = b.getAttribute("data-link");
+        pop.classList.add("open");
+        document.body.style.overflow = "hidden";
+      });
+    });
+    var pClose = function () { pop.classList.remove("open"); document.body.style.overflow = ""; };
+    pop.querySelector(".svc-x").addEventListener("click", pClose);
+    pop.addEventListener("click", function (e) { if (e.target === pop) pClose(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pop.classList.contains("open")) pClose(); });
+  }
+
+  /* 5) Reveal on scroll */
   var els = document.querySelectorAll(".rv");
   if (!("IntersectionObserver" in window) || reduced) {
     els.forEach(function (e) { e.classList.add("in"); });
