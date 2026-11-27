@@ -288,4 +288,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://jawharahaflat.com/party-cost-guide-riyadh/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/party-cost-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawharahaflat.com/en/party-cost-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/party-cost-guide-riyadh/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jawharahaflat.com/en/party-cost-guide-riyadh/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jawharahaflat.com/party-cost-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jawharahaflat.com/en/party-cost-guide-riyadh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jawharahaflat.com/party-cost-guide-riyadh/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

@@ -107,3 +107,25 @@
   }, { threshold: 0.12 });
   els.forEach(function (e) { io.observe(e); });
 })();
+
+/* 5) Booking form -> WhatsApp message */
+(function(){
+  var btn = document.getElementById('bookSend');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var ar = btn.getAttribute('data-lang') === 'ar';
+    function v(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+    var svcs = Array.prototype.slice.call(document.querySelectorAll('.svc-checks input:checked')).map(function(c){ return c.value; });
+    var lines = [];
+    lines.push(ar ? 'طلب عرض سعر من موقع جوهرة الرياض' : 'Quote request from the Jawharat Al-Riyadh website');
+    if(v('bfName')) lines.push((ar?'الاسم: ':'Name: ') + v('bfName'));
+    if(v('bfPhone')) lines.push((ar?'الجوال: ':'Mobile: ') + v('bfPhone'));
+    lines.push((ar?'نوع المناسبة: ':'Event type: ') + v('bfType'));
+    if(v('bfDate')) lines.push((ar?'التاريخ: ':'Date: ') + v('bfDate'));
+    if(v('bfArea')) lines.push((ar?'الحي: ':'District: ') + v('bfArea'));
+    if(v('bfGuests')) lines.push((ar?'عدد الضيوف: ':'Guests: ') + v('bfGuests'));
+    if(svcs.length) lines.push((ar?'الخدمات المطلوبة: ':'Services needed: ') + svcs.join(ar?'، ':', '));
+    if(v('bfNotes')) lines.push((ar?'ملاحظات: ':'Notes: ') + v('bfNotes'));
+    window.open('https://wa.me/966567642301?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+  });
+})();

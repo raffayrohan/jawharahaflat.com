@@ -245,3 +245,44 @@ html[dir="rtl"] .gal-grid figure.rv.in::after{transform:translateX(130%);animati
 .nav-item:hover .caret,.nav-item:focus-within .caret{transform:rotate(180deg)}
 a.chip{transition:.2s}
 a.chip:hover{border-color:var(--gold);color:var(--gold2);background:rgba(201,162,75,.1)}
+
+/* Header hardening: no crowding/wrapping at any desktop width */
+.hd{flex-wrap:nowrap;gap:18px}
+.logo{flex-shrink:0}
+.logo>span:last-child{white-space:nowrap}
+nav.main{flex-wrap:nowrap}
+.hd-actions{flex-shrink:0}
+.hd-cta,.lang{white-space:nowrap}
+.drop{display:block}
+@media(min-width:900px) and (max-width:1220px){nav.main{gap:14px}nav.main a{font-size:.9rem}.logo small{display:none}}
+
+/* Card & gallery hover animations */
+.card{transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s,border-color .35s}
+.card:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.75);box-shadow:0 20px 44px rgba(0,0,0,.5)}
+.card.has-bg:hover{box-shadow:inset 0 0 0 999px rgba(201,162,75,.05),0 20px 44px rgba(0,0,0,.5)}
+.card .ic{transition:transform .3s cubic-bezier(.2,.7,.3,1.4)}
+.card:hover .ic{transform:scale(1.1) rotate(-4deg)}
+.card .go{display:inline-block;transition:transform .3s,color .3s}
+.card:hover .go{color:var(--gold2)}
+html[dir="rtl"] .card:hover .go{transform:translateX(-4px)}
+html[dir="ltr"] .card:hover .go{transform:translateX(4px)}
+.gal-grid figure img{transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.gal-grid figure:hover img{transform:scale(1.07)}
+.btn{transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.35)}
+.chip{transition:transform .25s,border-color .25s,color .25s}
+a.chip:hover{transform:translateY(-2px)}
+
+/* Booking form */
+.book-form{background:linear-gradient(180deg,#211709,#1a1208);border:1px solid rgba(201,162,75,.35);border-radius:20px;padding:26px;max-width:860px;margin:0 auto}
+.book-form .fgrid{display:grid;gap:14px}
+@media(min-width:720px){.book-form .fgrid{grid-template-columns:1fr 1fr}}
+.book-form label{display:block;font-weight:700;font-size:.92rem;margin-bottom:6px;color:var(--gold2)}
+.book-form input,.book-form select,.book-form textarea{width:100%;background:#120c05;border:1px solid rgba(201,162,75,.3);border-radius:11px;color:var(--cream);padding:12px 14px;font:inherit;font-size:.98rem}
+.book-form input:focus,.book-form select:focus,.book-form textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.18)}
+.book-form .svc-checks{display:flex;flex-wrap:wrap;gap:8px}
+.book-form .svc-checks label{display:inline-flex;align-items:center;gap:7px;background:#120c05;border:1px solid rgba(201,162,75,.3);border-radius:999px;padding:8px 13px;font-weight:500;color:var(--cream);cursor:pointer;margin:0;transition:.2s}
+.book-form .svc-checks label:has(input:checked){background:rgba(201,162,75,.18);border-color:var(--gold);color:var(--gold2)}
+.book-form .svc-checks input{width:auto;accent-color:#c9a24b}
+.book-form .full{grid-column:1/-1}
+.book-form .hint{color:var(--muted);font-size:.88rem;text-align:center;margin-top:12px}
