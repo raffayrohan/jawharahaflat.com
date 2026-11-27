@@ -312,3 +312,35 @@ footer .cols{align-items:start}
 .foot-quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .foot-quick a{border:1px solid rgba(201,162,75,.4);border-radius:999px;padding:7px 13px;font-size:.88rem;display:inline-block}
 .foot-quick a:hover{border-color:var(--gold);color:var(--gold2)}
+
+/* Dropdown compact + scroll safety */
+.drop{max-height:calc(100vh - 100px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(201,162,75,.5) transparent}
+.drop a{padding:8px 12px;font-size:.92rem}
+.drop .drop-head{padding:5px 12px 5px}
+
+/* Lightbox buttons perfectly centered */
+.lightbox .x,.lightbox .nav-b{display:grid;place-items:center;padding:0;line-height:1}
+.lightbox .x svg,.lightbox .nav-b svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:block}
+
+/* Mobile: hide header WA (bottom bar covers it), burger menu */
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(201,162,75,.55);background:rgba(22,17,11,.6);color:var(--gold2);cursor:pointer;place-items:center;padding:0}
+.burger svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
+.mobile-nav{display:none;background:linear-gradient(180deg,#211709,#171006);border-bottom:1px solid rgba(201,162,75,.35);padding:14px 0 20px}
+.mobile-nav.open{display:block;animation:dropIn .25s ease}
+.mobile-nav .mn-head{color:var(--gold);font-weight:800;font-size:.85rem;margin:14px 0 6px}
+.mobile-nav a{display:flex;justify-content:space-between;align-items:center;padding:10px 4px;border-bottom:1px solid rgba(201,162,75,.12);font-size:1rem}
+.mobile-nav a:last-child{border-bottom:none}
+@media(max-width:899px){.hd-cta{display:none}.burger{display:grid}}
+@media(min-width:900px){.mobile-nav{display:none!important}}
+
+/* Back-to-top replaces floating WhatsApp on desktop */
+.wa-float{display:none!important}
+.to-top{position:fixed;bottom:24px;inset-inline-end:24px;width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(22,17,11,.92);color:var(--gold2);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:.3s;z-index:250;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.to-top:hover{background:rgba(201,162,75,.2)}
+@media(max-width:899px){.to-top{display:none}}
+
+/* No horizontal overflow anywhere */
+html,body{overflow-x:clip}
+img,video{max-width:100%}

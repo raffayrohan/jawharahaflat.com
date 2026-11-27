@@ -139,3 +139,22 @@
   d.addEventListener('click', function(){ try{ d.showPicker(); }catch(e){} });
   d.addEventListener('focus', function(){ try{ d.showPicker(); }catch(e){} });
 })();
+
+/* 7) Mobile menu + back to top */
+(function(){
+  var b = document.getElementById('burgerBtn'), nav = document.getElementById('mobileNav');
+  if(b && nav){
+    b.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.closest('a')){ nav.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    });
+  }
+  var top = document.getElementById('toTop');
+  if(top){
+    window.addEventListener('scroll', function(){ top.classList.toggle('show', window.scrollY > 600); }, {passive:true});
+    top.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  }
+})();
