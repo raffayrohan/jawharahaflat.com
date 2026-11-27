@@ -286,3 +286,29 @@ a.chip:hover{transform:translateY(-2px)}
 .book-form .svc-checks input{width:auto;accent-color:#c9a24b}
 .book-form .full{grid-column:1/-1}
 .book-form .hint{color:var(--muted);font-size:.88rem;text-align:center;margin-top:12px}
+
+/* Dropdown bulletproof + nav alignment */
+.hd{align-items:center}
+nav.main{align-items:center}
+nav.main>a{padding:10px 2px}
+.nav-item{display:flex;align-items:center}
+.drop{display:none;opacity:1;visibility:visible;transform:none}
+.nav-item:hover .drop,.nav-item:focus-within .drop{display:block;animation:dropIn .22s ease}
+@keyframes dropIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.nav-item:hover .drop,.nav-item:focus-within .drop{animation:none}}
+
+/* WhatsApp icon + form polish */
+.wa-ic{width:1.15em;height:1.15em;fill:currentColor;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center}
+.wa-float svg{width:27px;height:27px;fill:#fff}
+.mobile-bar a{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.mobile-bar .wa-ic{width:19px;height:19px}
+.book-form .cta-row{justify-content:center}
+.book-form input[type="date"]{color-scheme:dark;cursor:pointer}
+.book-form input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.85) sepia(.4);cursor:pointer;width:20px;height:20px}
+
+/* Footer balance */
+footer .cols{align-items:start}
+.foot-quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.foot-quick a{border:1px solid rgba(201,162,75,.4);border-radius:999px;padding:7px 13px;font-size:.88rem;display:inline-block}
+.foot-quick a:hover{border-color:var(--gold);color:var(--gold2)}

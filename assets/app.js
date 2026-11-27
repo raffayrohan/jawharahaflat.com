@@ -129,3 +129,13 @@
     window.open('https://wa.me/966567642301?text=' + encodeURIComponent(lines.join('\n')), '_blank');
   });
 })();
+
+/* 6) Date field: open calendar on click, min = today */
+(function(){
+  var d = document.getElementById('bfDate');
+  if(!d) return;
+  var today = new Date(); var iso = today.toISOString().split('T')[0];
+  d.min = iso;
+  d.addEventListener('click', function(){ try{ d.showPicker(); }catch(e){} });
+  d.addEventListener('focus', function(){ try{ d.showPicker(); }catch(e){} });
+})();
