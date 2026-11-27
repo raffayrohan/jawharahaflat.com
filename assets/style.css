@@ -230,3 +230,18 @@ html[dir="rtl"] .card.rv.in::after,html[dir="rtl"] .rv.in.shine::after{transform
 .gal-grid figure{position:relative}
 .gal-grid figure.rv.in::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,236,180,.14) 48%,rgba(255,255,255,.2) 52%,transparent 70%);transform:translateX(-130%);animation:shineSweep 1.15s ease .12s 1}
 html[dir="rtl"] .gal-grid figure.rv.in::after{transform:translateX(130%);animation-name:shineSweepR}
+
+/* Header dropdown menus */
+.nav-item{position:relative}
+.nav-item>a{display:inline-flex;align-items:center;gap:6px;padding:10px 2px}
+.nav-item .caret{font-size:.68em;color:var(--gold);transition:transform .25s}
+.drop{position:absolute;top:calc(100% + 8px);inset-inline-start:-14px;min-width:280px;background:linear-gradient(180deg,#241a0c,#1a1208);border:1px solid rgba(201,162,75,.38);border-radius:15px;padding:10px;box-shadow:0 26px 54px rgba(0,0,0,.55);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s,transform .22s,visibility .22s;z-index:70}
+.drop::before{content:"";position:absolute;top:-14px;inset-inline:0;height:14px}
+.drop a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:10px;font-size:.95rem;font-weight:500}
+.drop a:hover{background:rgba(201,162,75,.13);color:var(--gold2)}
+.drop a .d-ic{font-size:1.05rem}
+.drop .drop-head{font-size:.76rem;font-weight:700;letter-spacing:.04em;color:var(--gold);padding:6px 12px 6px}
+.nav-item:hover .drop,.nav-item:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.nav-item:hover .caret,.nav-item:focus-within .caret{transform:rotate(180deg)}
+a.chip{transition:.2s}
+a.chip:hover{border-color:var(--gold);color:var(--gold2);background:rgba(201,162,75,.1)}
