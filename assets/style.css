@@ -349,3 +349,18 @@ img,video{max-width:100%}
 @media(max-width:899px){body{padding-bottom:74px}}
 @media(max-width:560px){.logo small{display:none}.chip{padding:10px 16px}}
 :focus-visible{outline:2px solid var(--gold2);outline-offset:2px;border-radius:6px}
+
+/* Colourful animated glow on golden heading words */
+h2 .g,h3 .g{background:linear-gradient(90deg,var(--gold) 0%,#fcd9a0 22%,#d97706 42%,#2dd4bf 62%,var(--gold2) 82%,var(--gold) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flowShift 6s linear infinite;filter:drop-shadow(0 0 12px rgba(230,200,120,.35))}
+
+/* Balanced heading wraps */
+.hero h1,h2{text-wrap:balance}
+.hero h1{max-width:24em}
+
+/* Booking steps: hover lift, glow, number pop, shine sweep */
+.step{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.9,.3,1.2),border-color .3s,box-shadow .35s}
+.step:hover{transform:translateY(-7px);border-color:rgba(201,162,75,.65);box-shadow:0 20px 44px rgba(0,0,0,.5),0 0 26px rgba(201,162,75,.16)}
+.step .n{background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 6px 18px rgba(201,162,75,.35);transition:transform .35s cubic-bezier(.2,.9,.3,1.4),box-shadow .35s}
+.step:hover .n{transform:scale(1.14) rotate(-6deg);box-shadow:0 10px 26px rgba(201,162,75,.55)}
+.step.rv.in::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 42%,rgba(255,243,207,.13) 50%,transparent 58%);transform:translateX(-120%);animation:shineSweep 1.1s ease .15s forwards;pointer-events:none}
+@media(prefers-reduced-motion:reduce){h2 .g,h3 .g{animation:none}.step,.step .n{transition:none}.step.rv.in::after{animation:none;display:none}}
